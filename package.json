@@ -18,7 +18,7 @@
     "watch:scss": "node-sass src/scss --output dist/assets/css --output-style expanded -w",
     "watch": "npm-run-all -p watch:*"
   },
-  "author": "minojiro",
+  "author": "minojiro <minojiro@users.noreply.github.com>",
   "license": "ISC",
   "devDependencies": {
     "browser-sync": "^2.26.7",
