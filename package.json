@@ -1,0 +1,40 @@
+{
+  "name": "static-site-boilerplate",
+  "version": "1.0.0",
+  "description": "static site boilerplate",
+  "main": "index.js",
+  "scripts": {
+    "build:img": "node tasks/buildImage src/img dist/assets/img",
+    "build:js": "uglifyjs-folder src/js -eo -o dist/assets/js",
+    "build:pug": "pug src/pug -o dist",
+    "build:scss": "node-sass src/scss --output dist/assets/css --output-style expanded",
+    "build": "npm-run-all -p build:*",
+    "clear": "rimraf dist && mkdir dist",
+    "serve": "browser-sync start -s dist -f dist",
+    "dev": "npm-run-all -s clear build && npm-run-all -p watch serve",
+    "watch:img": "watch \"npm run build:img\" src/img",
+    "watch:js": "watch \"npm run build:js\" src/js",
+    "watch:pug": "pug src/pug -o dist -w",
+    "watch:scss": "node-sass src/scss --output dist/assets/css --output-style expanded -w",
+    "watch": "npm-run-all -p watch:*"
+  },
+  "author": "minojiro",
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "^2.26.7",
+    "imagemin": "^7.0.0",
+    "imagemin-cli": "^5.0.0",
+    "imagemin-gifsicle": "^6.0.1",
+    "imagemin-keep-folder": "^5.3.2",
+    "imagemin-mozjpeg": "^8.0.0",
+    "imagemin-pngquant": "^8.0.0",
+    "imagemin-svgo": "^7.0.0",
+    "node-sass": "^4.12.0",
+    "npm-run-all": "^4.1.5",
+    "npm-watch": "^0.6.0",
+    "pug-cli": "github:pugjs/pug-cli#master",
+    "rimraf": "^3.0.0",
+    "uglifyjs-folder": "^1.5.1",
+    "watch": "^1.0.2"
+  }
+}
