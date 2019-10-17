@@ -6,7 +6,7 @@
   "scripts": {
     "build:img": "node tasks/buildImage src/img dist/assets/img",
     "build:js": "uglifyjs-folder src/js -eo -o dist/assets/js",
-    "build:pug": "pug src/pug -o dist",
+    "build:pug": "pug src/pug --pretty -o dist",
     "build:scss": "node-sass src/scss --output dist/assets/css --output-style expanded",
     "build": "npm-run-all -p build:*",
     "clear": "rimraf dist && mkdir dist",
@@ -14,7 +14,7 @@
     "dev": "npm-run-all -s clear build && npm-run-all -p watch serve",
     "watch:img": "watch \"npm run build:img\" src/img",
     "watch:js": "watch \"npm run build:js\" src/js",
-    "watch:pug": "pug src/pug -o dist -w",
+    "watch:pug": "pug src/pug --pretty -o dist -w",
     "watch:scss": "node-sass src/scss --output dist/assets/css --output-style expanded -w",
     "watch": "npm-run-all -p watch:*"
   },
